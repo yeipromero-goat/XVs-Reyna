@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años — Invitación</title>
+<meta name="description" content="Invitación digital de XV Años">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%80%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   INVITACIÓN XV AÑOS — hoja de estilos
+   Paleta y tipografías son fáciles de ajustar desde :root
+   ========================================================= */
+
+:root{
+  /* Paleta ajustada a la foto de portada real: vestido rojo/vino,
+     hacienda de piedra y cantera, luz cálida ámbar de las arcadas. */
+  --rose-deep:   #5c1a20;
+  --rose:        #7d2c28;
+  --rose-light:  #c17a52;
+  --cream:       #f8f1e5;
+  --cream-2:     #efe0c9;
+  --gold:        #cf9a4c;
+  --gold-dark:   #9c6b28;
+  --ink:         #3b2a22;
+  --ink-soft:    #6b5142;
+  --white:       #ffffff;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-serif:  'Playfair Display', serif;
+  --font-body:   'Cormorant Garamond', serif;
+
+  --fold-size: 70px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  font-size:19px;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+h1,h2,h3{ margin:0; font-weight:500; }
+p{ margin:0 0 .5em; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+.script{ font-family:var(--font-script); font-weight:400; }
+
+.section-title{
+  font-family:var(--font-script);
+  font-size:clamp(2.6rem,6vw,3.6rem);
+  color:var(--gold-dark);
+  text-align:center;
+  position:relative;
+  padding-top:1.4em;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:120px;
+  height:1px;
+  background:var(--gold);
+  margin:.4em auto 0;
+}
+
+/* ---------- utilidades ---------- */
+.btn{
+  display:inline-block;
+  padding:.7em 1.8em;
+  font-family:var(--font-serif);
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-radius:4px;
+  cursor:pointer;
+  border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn--outline{
+  background:linear-gradient(160deg,var(--gold) 0%,var(--gold-dark) 100%);
+  color:var(--white);
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+.btn--solid{
+  background:linear-gradient(160deg,var(--gold) 0%,var(--gold-dark) 100%);
+  color:var(--white);
+  box-shadow:0 6px 18px rgba(0,0,0,.22);
+  margin-top:1.4rem;
+}
+
+/* ---------- marcador de fotos (placeholder) ---------- */
+.ph-photo{
+  position:relative;
+  overflow:hidden;
+  width:100%; height:100%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(135deg,var(--rose) 0%, var(--rose-deep) 55%, #6f4a3f 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(255,255,255,.85);
+}
+.ph-photo img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:2;
+}
+.ph-photo__label{
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; align-items:center; gap:.25em;
+  font-family:var(--font-serif);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-align:center;
+  padding:0 1em;
+  opacity:.85;
+}
+.ph-photo__label em{
+  font-style:normal;
+  font-size:1.05rem;
+  letter-spacing:.15em;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:999px;
+  padding:.3em 1em;
+}
+.ribbon{
+  position:absolute; top:14px; right:-34px;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--font-serif);
+  font-size:.68rem;
+  letter-spacing:.1em;
+  padding:.35em 2.4em;
+  transform:rotate(38deg);
+  z-index:3;
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+
+/* ---------- diagonal folds entre secciones ---------- */
+.fold{ position:relative; }
+.fold--down{ clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - var(--fold-size))); }
+.fold--up{ clip-path:polygon(0 var(--fold-size),100% 0,100% 100%,0 100%); margin-top:calc(var(--fold-size) * -1); }
+
+/* =========================================================
+   BOTÓN DE MÚSICA
+   ========================================================= */
+.music-toggle{
+  position:fixed; top:18px; left:18px; z-index:200;
+  width:42px; height:42px;
+  background:rgba(20,14,12,.55);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:6px;
+  display:flex; align-items:center; justify-content:center; gap:4px;
+  cursor:pointer;
+}
+.music-toggle .bar{
+  width:3px; height:14px; background:var(--cream); border-radius:2px;
+  animation:sway 1s ease-in-out infinite;
+}
+.music-toggle .bar:nth-child(2){ animation-delay:.15s; }
+.music-toggle .bar:nth-child(3){ animation-delay:.3s; }
+.music-toggle:not(.is-playing) .bar{ animation-play-state:paused; height:6px; }
+@keyframes sway{ 0%,100%{ height:6px; } 50%{ height:16px; } }
+
+/* =========================================================
+   SOBRE / PORTADA
+   ========================================================= */
+.envelope{
+  position:fixed; inset:0; z-index:100;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(155deg, rgba(255,255,255,.05) 0%, transparent 30%),
+    linear-gradient(160deg,var(--rose) 0%, var(--rose-deep) 60%, #3f231d 100%);
+  transition:opacity .8s ease, visibility .8s ease;
+}
+/* textura fina de papel (grano cruzado) */
+.envelope__texture{
+  position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 6px);
+}
+/* costuras diagonales del sobre: forman el rombo central como un sobre abierto,
+   con una solapa superior e inferior ligeramente distintas de tono */
+.envelope__texture::before,
+.envelope__texture::after{
+  content:"";
+  position:absolute; inset:0;
+}
+.envelope__texture::before{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), transparent 55%);
+  clip-path:polygon(0 0,100% 0,50% 46%);
+}
+.envelope__texture::after{
+  background:linear-gradient(0deg, rgba(0,0,0,.16), transparent 55%);
+  clip-path:polygon(0 100%,100% 100%,50% 54%);
+}
+.envelope__seam{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(45deg,
+      transparent calc(50% - 4px), rgba(0,0,0,.4) calc(50% - 1px),
+      rgba(255,244,224,.45) 50%, transparent calc(50% + 3px)),
+    linear-gradient(-45deg,
+      transparent calc(50% - 4px), rgba(0,0,0,.4) calc(50% - 1px),
+      rgba(255,244,224,.45) 50%, transparent calc(50% + 3px));
+}
+
+/* esquinas florales (SVG reutilizado, espejado por esquina) */
+.envelope__corner{
+  position:absolute; width:230px; height:230px;
+  color:var(--gold);
+  opacity:.92;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.3));
+}
+.envelope__corner--tl{ top:16px; left:16px; }
+.envelope__corner--tr{ top:16px; right:16px; transform:scaleX(-1); }
+.envelope__corner--bl{ bottom:16px; left:16px; transform:scaleY(-1); }
+.envelope__corner--br{ bottom:16px; right:16px; transform:scale(-1,-1); }
+
+.envelope__content{
+  position:relative; z-index:2;
+  text-align:center; color:var(--cream);
+  padding:2rem;
+}
+.envelope__portrait{
+  width:150px; height:150px;
+  margin:0 auto 1.6em;
+  border-radius:50%;
+  padding:6px;
+  background:linear-gradient(160deg,var(--gold) 0%,var(--gold-dark) 100%);
+  box-shadow:0 10px 24px rgba(0,0,0,.4);
+}
+.envelope__portrait-photo{
+  width:100%; height:100%;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.85);
+}
+.envelope__label{
+  font-family:var(--font-serif);
+  letter-spacing:.25em; text-transform:uppercase;
+  font-size:.85rem; margin-bottom:.6em;
+}
+.envelope__guest{
+  font-family:var(--font-serif);
+  font-size:clamp(1.8rem,5vw,2.6rem);
+  color:var(--gold);
+  letter-spacing:.05em;
+  margin-bottom:.3em;
+}
+.envelope__invite{
+  font-family:var(--font-script);
+  font-size:1.4rem;
+  color:var(--cream);
+  margin-bottom:2em;
+}
+.btn-open{
+  font-family:var(--font-serif);
+  font-size:1rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--cream);
+  background:linear-gradient(160deg,var(--rose-light) 0%,var(--rose) 100%);
+  border:1px solid rgba(255,255,255,.4);
+  padding:.9em 2.2em;
+  border-radius:6px;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(0,0,0,.35), inset 0 0 0 2px rgba(94,140,215,.55);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.btn-open:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(0,0,0,.4); }
+
+.seal{
+  width:132px; height:132px;
+  margin:2.6em auto 0;
+  /* forma de gota de cera, ligeramente irregular */
+  border-radius:44% 56% 52% 48% / 48% 44% 56% 52%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,.35), transparent 35%),
+    radial-gradient(circle at 68% 78%, rgba(0,0,0,.35), transparent 45%),
+    radial-gradient(circle at 40% 35%, #a8543a, #6f2c1e 75%);
+  box-shadow:0 8px 18px rgba(0,0,0,.5), inset 0 0 0 3px rgba(0,0,0,.18), inset 0 2px 6px rgba(255,255,255,.15);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.15em;
+  font-family:var(--font-serif);
+  font-size:1rem; letter-spacing:.08em; line-height:1.15;
+  color:rgba(255,235,220,.92);
+  text-shadow:0 1px 0 rgba(0,0,0,.4), 0 -1px 0 rgba(255,255,255,.12);
+  position:relative;
+}
+.seal__ring{
+  position:absolute; inset:-9px;
+  border-radius:inherit;
+  background:repeating-conic-gradient(rgba(255,230,200,.55) 0deg 6deg, transparent 6deg 16deg);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+          mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  opacity:.8;
+}
+.seal__text{ position:relative; }
+.seal__flourish{
+  position:relative;
+  width:44px; height:auto;
+  color:rgba(255,230,200,.6);
+  margin-top:.1em;
+}
+
+body.is-open .envelope{ opacity:0; visibility:hidden; pointer-events:none; }
+
+/* =========================================================
+   SITIO PRINCIPAL
+   ========================================================= */
+.site{ display:none; }
+body.is-open .site{ display:block; }
+body:not(.is-open){ overflow:hidden; height:100vh; }
+
+section{ position:relative; }
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.hero__bg{ position:absolute; inset:0; align-items:flex-start; padding-top:2.4rem; }
+.hero__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(20,14,12,.15), rgba(20,14,12,.55) 70%, rgba(20,14,12,.75));
+  z-index:1;
+}
+.hero__content{
+  position:relative; z-index:2;
+  text-align:center; color:var(--cream);
+  padding:6rem 1.5rem 4rem;
+}
+.hero__pretitle{
+  font-family:var(--font-serif);
+  letter-spacing:.2em; text-transform:uppercase;
+  font-size:.85rem; margin-bottom:.2em; opacity:.9;
+}
+.hero__guest{
+  font-family:var(--font-script);
+  font-size:clamp(1.6rem,4vw,2.2rem);
+  color:var(--white);
+  margin-bottom:.15em;
+}
+.hero__invite{
+  font-family:var(--font-serif);
+  letter-spacing:.2em; text-transform:uppercase;
+  font-size:.8rem; margin-bottom:1.6em; opacity:.9;
+}
+.hero__badge{
+  position:relative;
+  width:150px; height:150px;
+  margin:0 auto .6em;
+}
+.hero__badge-photo{
+  width:110px; height:110px;
+  border-radius:50%;
+  margin:0 auto;
+  border:4px solid rgba(255,255,255,.85);
+  box-shadow:0 6px 18px rgba(0,0,0,.4);
+}
+.hero__age{
+  position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+  font-family:var(--font-serif); font-weight:700;
+  font-size:2.6rem; color:var(--white);
+  text-shadow:0 4px 10px rgba(0,0,0,.5);
+}
+.hero__name{
+  font-family:var(--font-script);
+  font-size:clamp(3rem,10vw,5.5rem);
+  line-height:1;
+  color:var(--white);
+  margin-top:.3em;
+}
+.hero__subtitle{
+  font-family:var(--font-serif);
+  letter-spacing:.35em; text-transform:uppercase;
+  font-size:.85rem; margin:.6em 0 1em;
+}
+.hero__date{
+  display:inline-flex; border-top:1px solid rgba(255,255,255,.6); border-bottom:1px solid rgba(255,255,255,.6);
+  font-family:var(--font-serif);
+}
+.hero__date span{
+  padding:.4em 1em;
+  border-left:1px solid rgba(255,255,255,.6);
+  font-size:.95rem; letter-spacing:.05em;
+}
+.hero__date span:first-child{ border-left:none; }
+
+.scroll-cue{
+  position:absolute; bottom:1.6rem; left:50%; transform:translateX(-50%);
+  z-index:2; color:var(--cream); font-size:1.4rem;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{ 0%,100%{ transform:translate(-50%,0);} 50%{ transform:translate(-50%,8px);} }
+
+/* ---------- UBICACIÓN ---------- */
+.ubicacion{
+  background:var(--rose-deep);
+  padding:5rem 1.5rem 6rem;
+}
+.ubicacion .section-title{ color:var(--cream); }
+.ubicacion .section-title::after{ background:var(--gold); }
+.cards{
+  max-width:760px; margin:3rem auto 0;
+  display:flex; flex-direction:column; gap:2.4rem;
+}
+.card{
+  background:var(--white);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+.card__photo{ aspect-ratio:16/9; }
+.card__body{ padding:2rem 1.8rem 2.2rem; text-align:center; }
+.icon-circle{
+  width:56px; height:56px; margin:-4.4rem auto 1rem;
+  border-radius:50%;
+  background:var(--white);
+  border:1px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold-dark);
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+.card__body h3{
+  font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.08em;
+  color:var(--gold-dark); font-size:1.15rem; margin-bottom:.6em;
+}
+.card__body p{ color:var(--ink-soft); margin-bottom:1.2em; }
+
+/* ---------- SAVE THE DATE ---------- */
+.std{
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.std--nofoto{
+  padding:6rem 1.5rem;
+  background:linear-gradient(160deg,var(--rose) 0%, var(--rose-deep) 60%, #3f231d 100%);
+}
+.std__content{ position:relative; text-align:center; color:var(--cream); padding:2rem; }
+.std__content h2{ font-size:clamp(2.6rem,8vw,4.2rem); color:var(--white); }
+.std__content h2::before,.std__content h2::after{ content:"◇"; font-size:.5em; margin:0 .5em; color:var(--gold); vertical-align:middle; }
+.std__date{ font-family:var(--font-serif); letter-spacing:.15em; font-size:1.15rem; margin:.6em 0 1.6em; }
+.countdown{ display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap; }
+.countdown__box{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:8px;
+  padding:.9em 1.2em;
+  min-width:82px;
+}
+.countdown__box span{ display:block; font-family:var(--font-serif); font-size:2rem; }
+.countdown__box small{ letter-spacing:.1em; text-transform:uppercase; font-size:.7rem; opacity:.85; }
+
+/* ---------- ITINERARIO ---------- */
+.itinerario{ background:var(--cream-2); padding:5rem 1.5rem 6rem; }
+.timeline{
+  max-width:900px; margin:3rem auto 0; position:relative;
+}
+.timeline::before{
+  content:""; position:absolute; left:50%; top:0; bottom:0; width:2px;
+  background:var(--gold); transform:translateX(-50%);
+}
+.tl-item{ display:flex; align-items:center; gap:1.4rem; margin-bottom:2.6rem; position:relative; }
+.tl-item--left{ justify-content:flex-end; }
+.tl-item--right{ justify-content:flex-start; }
+.tl-item--left .tl-card{ order:1; text-align:right; }
+.tl-item--left .tl-time{ order:3; text-align:left; }
+.tl-card{
+  background:var(--white); border-radius:6px; padding:1.4rem 1.6rem;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  width:min(320px,42%);
+}
+.tl-card h3{ font-family:var(--font-serif); color:var(--gold-dark); text-transform:uppercase; letter-spacing:.06em; font-size:1.05rem; margin-bottom:.4em; }
+.tl-card p{ color:var(--ink-soft); font-size:.95rem; margin:0; }
+.tl-dot{
+  flex:0 0 auto;
+  width:52px; height:52px; border-radius:50%;
+  background:var(--gold);
+  color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  z-index:1;
+}
+.tl-time{ font-family:var(--font-serif); font-size:.85rem; letter-spacing:.04em; color:var(--ink-soft); width:min(180px,30%); }
+
+/* ---------- GRACIAS ---------- */
+.gracias{ display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.gracias--nofoto{
+  padding:5rem 1.5rem;
+  background:linear-gradient(160deg,var(--rose-deep) 0%, #3f231d 100%);
+}
+.gracias__content{ position:relative; text-align:center; color:var(--cream); max-width:640px; padding:2rem; }
+.gracias__title{ font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.08em; font-size:1.15rem; margin-bottom:.7em; }
+.gracias__content p:last-child{ font-family:var(--font-serif); font-size:1.15rem; line-height:1.7; }
+
+/* ---------- MESA DE REGALOS ---------- */
+.regalos{ background:var(--cream); padding:5rem 1.5rem 6rem; text-align:center; }
+.regalos > p{ max-width:640px; margin:1rem auto 2.4rem; color:var(--ink-soft); font-size:1.1rem; }
+.gift-card{
+  position:relative;
+  width:min(420px,90%);
+  aspect-ratio:16/9;
+  margin:0 auto;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  display:flex; align-items:center; justify-content:center;
+}
+.gift-card__corner{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(100deg, rgba(255,255,255,.16) 0%, transparent 22%),
+    repeating-linear-gradient(115deg, transparent 0 26px, rgba(255,255,255,.08) 26px 30px);
+  border-radius:inherit;
+}
+.gift-card__corner::before{
+  content:"Regalo";
+  position:absolute; top:14px; right:-30px;
+  background:rgba(255,255,255,.9);
+  color:var(--rose-deep);
+  font-family:var(--font-serif);
+  font-size:.65rem; letter-spacing:.15em; text-transform:uppercase;
+  padding:.35em 2.2em;
+  transform:rotate(38deg);
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+.gift-card__store{
+  font-family:var(--font-serif); letter-spacing:.06em;
+  color:var(--white); font-size:1.4rem;
+}
+.gift-card__table{ margin-top:1.6rem; font-family:var(--font-serif); letter-spacing:.06em; color:var(--gold-dark); }
+
+/* ---------- HOTELES ---------- */
+.hoteles{ background:var(--cream-2); padding:5rem 1.5rem 6rem; text-align:center; }
+.hoteles > p{ max-width:640px; margin:1rem auto 2.4rem; color:var(--ink-soft); font-size:1.1rem; }
+.card--hotel{ max-width:520px; margin:0 auto; text-align:left; }
+.card--hotel .card__body{ text-align:center; }
+
+/* ---------- CON LA BENDICIÓN DE (familia / padrinos) ---------- */
+.familia{ background:var(--white); padding:5rem 1.5rem 6rem; text-align:center; }
+.familia__quince{
+  font-family:var(--font-script);
+  font-size:clamp(2.4rem,6vw,3.4rem);
+  color:var(--ink);
+  margin:.2em 0 2rem;
+}
+.familia__grid{
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2.2rem;
+}
+.familia__group h3{
+  font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.08em;
+  color:var(--gold-dark); font-size:.95rem; margin-bottom:.6em;
+}
+.familia__group p{ color:var(--ink-soft); line-height:1.7; margin:0; }
+
+@media (max-width:720px){
+  .familia__grid{ grid-template-columns:1fr; gap:1.8rem; }
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer{ text-align:center; padding:3rem 1.5rem; color:var(--ink-soft); font-family:var(--font-serif); font-size:.85rem; letter-spacing:.05em; background:var(--white); }
+
+/* ---------- animación de aparición al hacer scroll ---------- */
+.reveal{ opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:720px){
+  :root{ --fold-size:40px; }
+  body{ font-size:17px; }
+  .tl-card{ width:70%; }
+  .tl-time{ width:auto; font-size:.75rem; }
+  .timeline::before{ left:26px; }
+  .tl-item,.tl-item--left,.tl-item--right{ justify-content:flex-start; }
+  .tl-item--left .tl-card,.tl-item--left .tl-time{ order:initial; text-align:left; }
+  .tl-dot{ order:-1; width:44px; height:44px; font-size:1.05rem; }
+  .tl-time{ display:none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ MUSIC TOGGLE ============ -->
+<button id="musicToggle" class="music-toggle" type="button" aria-label="Reproducir música" aria-pressed="false">
+  <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+<audio id="bgMusic" loop preload="none">
+  <!-- Reemplaza este archivo por la pista real cuando armes el repositorio -->
+  <source src="audio/musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ============ SOBRE / PORTADA ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="corner-motif" viewBox="0 0 200 200">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".8">
+        <path d="M2 30 C 40 20, 70 40, 60 75 C 52 102, 78 112, 100 98"/>
+        <path d="M2 60 C 30 55, 48 68, 46 90"/>
+        <path d="M30 2 C 25 30, 45 45, 72 40"/>
+        <path d="M2 4 C 60 -4, 90 24, 78 55"/>
+        <path d="M78 55 C 92 68, 112 66, 122 50"/>
+        <path d="M100 98 C 118 106, 132 96, 136 80"/>
+      </g>
+      <g fill="currentColor" opacity=".55" stroke="none">
+        <path d="M56 68 C 62 60, 72 61, 74 71 C 66 76, 58 75, 56 68 Z"/>
+        <path d="M40 88 C 47 82, 56 84, 57 93 C 49 97, 42 95, 40 88 Z"/>
+        <path d="M70 32 C 78 25, 88 27, 88 38 C 79 42, 71 39, 70 32 Z"/>
+        <path d="M112 60 C 120 54, 129 57, 128 67 C 120 70, 112 68, 112 60 Z"/>
+      </g>
+      <g fill="currentColor" opacity=".85" stroke="none" transform="translate(95,95)">
+        <circle r="3"/>
+        <ellipse rx="7" ry="3"/>
+        <ellipse rx="7" ry="3" transform="rotate(72)"/>
+        <ellipse rx="7" ry="3" transform="rotate(144)"/>
+        <ellipse rx="7" ry="3" transform="rotate(216)"/>
+        <ellipse rx="7" ry="3" transform="rotate(288)"/>
+      </g>
+      <g fill="currentColor" opacity=".7" stroke="none" transform="translate(130,73)">
+        <circle r="2.4"/>
+        <ellipse rx="5.5" ry="2.4"/>
+        <ellipse rx="5.5" ry="2.4" transform="rotate(72)"/>
+        <ellipse rx="5.5" ry="2.4" transform="rotate(144)"/>
+        <ellipse rx="5.5" ry="2.4" transform="rotate(216)"/>
+        <ellipse rx="5.5" ry="2.4" transform="rotate(288)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<section id="envelope" class="envelope">
+  <div class="envelope__texture"></div>
+  <div class="envelope__seam" aria-hidden="true"></div>
+
+  <!-- Motivo floral reutilizado en las 4 esquinas (se espeja con CSS) -->
+  <svg class="envelope__corner envelope__corner--tl" aria-hidden="true"><use href="#corner-motif"/></svg>
+  <svg class="envelope__corner envelope__corner--tr" aria-hidden="true"><use href="#corner-motif"/></svg>
+  <svg class="envelope__corner envelope__corner--bl" aria-hidden="true"><use href="#corner-motif"/></svg>
+  <svg class="envelope__corner envelope__corner--br" aria-hidden="true"><use href="#corner-motif"/></svg>
+
+  <div class="envelope__content">
+    <div class="envelope__portrait">
+      <div class="ph-photo envelope__portrait-photo">
+        <img src="img/circulo-sobre.jpg" alt="Reyna" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <p class="envelope__label">Con mucho cariño</p>
+    <h1 class="envelope__guest">Familia Badillo Ramírez</h1>
+    <p class="envelope__invite">te invita a celebrar</p>
+
+    <button id="openInvitation" class="btn-open" type="button">
+      Abrir Invitación
+    </button>
+
+    <div class="seal" aria-hidden="true">
+      <span class="seal__ring"></span>
+      <span class="seal__text">XV<br>Años</span>
+      <svg class="seal__flourish" viewBox="0 0 60 16" aria-hidden="true">
+        <path d="M2 8c8-8 12 6 20 0s10-8 18-8 10 8 18 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SITIO PRINCIPAL ============ -->
+<div id="site" class="site">
+
+  <!-- HERO -->
+  <section class="hero fold fold--down" id="inicio">
+    <div class="ph-photo hero__bg">
+      <img src="img/1.jpg" alt="Retrato de la quinceañera" onerror="this.style.display='none'">
+      <span class="ph-photo__label"><em>Foto 1</em>Retrato principal</span>
+    </div>
+    <div class="hero__scrim"></div>
+
+    <div class="hero__content">
+      <p class="hero__pretitle">Con mucho cariño,</p>
+      <p class="hero__guest">Familia Badillo Ramírez</p>
+      <p class="hero__invite">te invita a celebrar</p>
+
+      <div class="hero__badge">
+        <div class="ph-photo hero__badge-photo">
+          <img src="img/1.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <span class="hero__age">15</span>
+      </div>
+
+      <p class="hero__name" data-editable="Nombre de la quinceañera">Reyna</p>
+      <p class="hero__subtitle">Mis XV Años</p>
+
+      <div class="hero__date">
+        <span data-editable="día">30</span>
+        <span data-editable="mes">Oct</span>
+        <span data-editable="año">2026</span>
+      </div>
+    </div>
+
+    <a href="#ubicacion" class="scroll-cue" aria-label="Ir a la sección de ubicación">˅</a>
+  </section>
+
+  <!-- UBICACIÓN -->
+  <section class="ubicacion fold fold--up" id="ubicacion">
+    <h2 class="section-title">Ubicación</h2>
+
+    <div class="cards">
+      <article class="card">
+        <div class="ph-photo card__photo">
+          <img src="img/2.jpg" alt="Recinto de la ceremonia religiosa" onerror="this.style.display='none'">
+          <span class="ph-photo__label"><em>Foto 2</em>Iglesia / recinto</span>
+          <span class="ribbon" data-editable="hora de la ceremonia">6:00 PM</span>
+        </div>
+        <div class="card__body">
+          <div class="icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.2v3"/><path d="M10.3 3.7h3.4"/><path d="M6 21V11l6-4.2L18 11v10"/><path d="M6 21h12"/><path d="M10 21v-5h4v5"/></svg>
+          </div>
+          <h3>Ceremonia Religiosa</h3>
+          <p data-editable="nombre y dirección de la iglesia">Parroquia de Nuestra Señora de Guadalupe</p>
+          <a class="btn btn--outline" href="https://share.google/baTyKUjBBTjzvA5cU" target="_blank" rel="noopener">¿Cómo llegar?</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="ph-photo card__photo">
+          <img src="img/3.jpg" alt="Salón de recepción" onerror="this.style.display='none'">
+          <span class="ph-photo__label"><em>Foto 3</em>Salón de recepción</span>
+          <span class="ribbon" data-editable="hora de la recepción">7:15 PM</span>
+        </div>
+        <div class="card__body">
+          <div class="icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l-1.2 6.6a2.4 2.4 0 0 1-2.3 2v6.4"/><path d="M9.5 21h4"/><path d="M6 3c0 2.6 1.6 4.6 3.5 4.6"/><path d="M17 3v9a2 2 0 0 0 2 2 2 2 0 0 0 2-2V3"/><path d="M17 8h4"/></svg>
+          </div>
+          <h3>Recepción</h3>
+          <p data-editable="nombre y dirección del salón">Salón La Quinta — Hotel La Quinta Inn, Poza Rica</p>
+          <a class="btn btn--outline" href="https://share.google/0kTS37jBXEp3rSL0d" target="_blank" rel="noopener">¿Cómo llegar?</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SAVE THE DATE -->
+  <section class="std std--nofoto fold fold--down" id="fecha">
+    <div class="std__content">
+      <h2 class="script">Save the Date</h2>
+      <p class="std__date" data-editable="fecha del evento">30 . Oct . 2026</p>
+
+      <div id="countdown" class="countdown" aria-live="polite">
+        <div class="countdown__box"><span id="cd-days">00</span><small>Días</small></div>
+        <div class="countdown__box"><span id="cd-hours">00</span><small>Hrs</small></div>
+        <div class="countdown__box"><span id="cd-min">00</span><small>Min</small></div>
+        <div class="countdown__box"><span id="cd-sec">00</span><small>Seg.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section class="itinerario fold fold--up" id="itinerario">
+    <h2 class="section-title script">Itinerario</h2>
+
+    <div class="timeline">
+      <div class="tl-item tl-item--left">
+        <div class="tl-card">
+          <h3>Misa</h3>
+          <p>Te esperamos en la misa de acción de gracias, Parroquia de Nuestra Señora de Guadalupe</p>
+        </div>
+        <div class="tl-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.2v3"/><path d="M10.3 3.7h3.4"/><path d="M6 21V11l6-4.2L18 11v10"/><path d="M6 21h12"/><path d="M10 21v-5h4v5"/></svg>
+        </div>
+        <span class="tl-time">6:00 PM</span>
+      </div>
+
+      <div class="tl-item tl-item--right">
+        <span class="tl-time">7:15 PM – 8:15 PM</span>
+        <div class="tl-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l-1.2 6.6a2.4 2.4 0 0 1-2.3 2v6.4"/><path d="M9.5 21h4"/><path d="M6 3c0 2.6 1.6 4.6 3.5 4.6"/><path d="M17 3v9a2 2 0 0 0 2 2 2 2 0 0 0 2-2V3"/><path d="M17 8h4"/></svg>
+        </div>
+        <div class="tl-card">
+          <h3>Cóctel de Bienvenida</h3>
+          <p>Te esperamos en el área jardín con una bebida refrescante</p>
+        </div>
+      </div>
+
+      <div class="tl-item tl-item--left">
+        <div class="tl-card">
+          <h3>Acceso al Salón</h3>
+          <p>La mesa está lista para el gran banquete que tenemos para ti, Salón La Quinta</p>
+        </div>
+        <div class="tl-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v7a1.5 1.5 0 0 0 3 0V2"/><path d="M8.5 9v13"/><path d="M16 2c-1.4 0-2.5 1.6-2.5 5.2 0 2 .7 3.3 1.7 3.8V21"/></svg>
+        </div>
+        <span class="tl-time">8:30 PM</span>
+      </div>
+
+      <div class="tl-item tl-item--right">
+        <span class="tl-time" data-editable="horario de la fiesta, aún no confirmado">Hora por confirmar</span>
+        <div class="tl-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 6"/><path d="M9 20a5 5 0 0 0 5-5"/><circle cx="18" cy="5" r="1.2" fill="currentColor" stroke="none"/><circle cx="20" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="3" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="tl-card">
+          <h3>Fiesta</h3>
+          <p>Nos vemos en la pista de baile para festejar y pasarla bien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CON LA BENDICIÓN DE -->
+  <section class="familia" id="familia">
+    <h2 class="section-title script">Con la Bendición de</h2>
+    <p class="familia__quince">Reyna Anahí Badillo Ramírez</p>
+
+    <div class="familia__grid">
+      <div class="familia__group">
+        <h3>Mis Padres</h3>
+        <p>Reyes Badillo Hernández<br>Ana Ramírez</p>
+      </div>
+      <div class="familia__group">
+        <h3>Mis Abuelos</h3>
+        <p>Reyes Badillo Herrera<br>Martha Elba Hernández Zarate</p>
+      </div>
+      <div class="familia__group">
+        <h3>Padrinos de Velación</h3>
+        <p>Martha Elena Badillo Hernández<br>Daniel Orellan Badillo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRACIAS -->
+  <section class="gracias gracias--nofoto fold fold--down">
+    <div class="gracias__content">
+      <p class="gracias__title">Familia Badillo Ramírez</p>
+      <p>Gracias por ser parte de este momento tan especial, será un gusto poder compartir este día contigo</p>
+    </div>
+  </section>
+
+  <!-- MESA DE REGALOS -->
+  <section class="regalos" id="regalos">
+    <h2 class="section-title script">Mesa de Regalos</h2>
+    <p>Mi mejor regalo es que estés conmigo en este día tan especial, pero si quieres hacerme un obsequio aquí están algunas opciones.</p>
+
+    <div class="gift-card">
+      <span class="gift-card__corner" aria-hidden="true"></span>
+      <span class="gift-card__store" data-editable="nombre de la tienda">[ Tienda ]</span>
+    </div>
+
+    <p class="gift-card__table" data-editable="número de mesa de regalos">Número de mesa #00000</p>
+    <a href="#" class="btn btn--solid" target="_blank" rel="noopener" data-editable="liga de la mesa de regalos">Ir a Mesa de Regalos</a>
+  </section>
+
+  <!-- HOTELES -->
+  <section class="hoteles fold fold--up" id="hoteles">
+    <h2 class="section-title script">Hoteles</h2>
+    <p>Estas son las recomendaciones para hospedarte y pases una estancia agradable.</p>
+
+    <article class="card card--hotel">
+      <div class="ph-photo card__photo">
+        <img src="img/11.jpg" alt="" onerror="this.style.display='none'">
+        <span class="ph-photo__label"><em>Foto 11</em>Hotel</span>
+        <span class="ribbon" data-editable="tarifa desde">Tarifa por confirmar</span>
+      </div>
+      <div class="card__body">
+        <h3>Hotel La Quinta Inn, Poza Rica</h3>
+        <p data-editable="código de descuento, si aplica">Sede también de la recepción · Código: [CÓDIGO]</p>
+        <a class="btn btn--outline" href="https://share.google/0kTS37jBXEp3rSL0d" target="_blank" rel="noopener">¿Cómo llegar?</a>
+      </div>
+    </article>
+  </section>
+
+  <footer class="site-footer">
+    <p>Hecho con cariño para celebrar los XV años de <span data-editable="nombre de la quinceañera">Reyna</span></p>
+  </footer>
+
+</div>
+
+<script>
+// =========================================================
+// INVITACIÓN XV AÑOS — interactividad
+// =========================================================
+(function () {
+  "use strict";
+
+  /* ---------- abrir sobre ---------- */
+  var openBtn = document.getElementById("openInvitation");
+  var envelope = document.getElementById("envelope");
+
+  openBtn.addEventListener("click", function () {
+    document.body.classList.add("is-open");
+    envelope.setAttribute("aria-hidden", "true");
+    tryPlayMusic();
+    // mueve el foco al inicio del sitio para lectores de pantalla
+    var hero = document.getElementById("inicio");
+    if (hero) hero.setAttribute("tabindex", "-1");
+    setTimeout(function () {
+      if (hero) hero.focus();
+    }, 850);
+  });
+
+  /* ---------- música de fondo ---------- */
+  var musicBtn = document.getElementById("musicToggle");
+  var audio = document.getElementById("bgMusic");
+  var playing = false;
+
+  function setPlayingState(state) {
+    playing = state;
+    musicBtn.classList.toggle("is-playing", playing);
+    musicBtn.setAttribute("aria-pressed", String(playing));
+  }
+
+  function tryPlayMusic() {
+    var p = audio.play();
+    if (p && typeof p.then === "function") {
+      p.then(function () { setPlayingState(true); })
+       .catch(function () { setPlayingState(false); });
+    }
+  }
+
+  musicBtn.addEventListener("click", function () {
+    if (playing) {
+      audio.pause();
+      setPlayingState(false);
+    } else {
+      tryPlayMusic();
+    }
+  });
+
+  /* ---------- cuenta regresiva ----------
+     Fecha real del evento: 30 de octubre de 2026, hora de la misa (6:00 pm).
+     Formato: 'AAAA-MM-DDTHH:MM:SS-06:00' (-06:00 = huso horario de Poza Rica/CDMX) */
+  var EVENT_DATE = new Date("2026-10-30T18:00:00-06:00");
+
+  var elDays = document.getElementById("cd-days");
+  var elHours = document.getElementById("cd-hours");
+  var elMin = document.getElementById("cd-min");
+  var elSec = document.getElementById("cd-sec");
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+
+  function updateCountdown() {
+    if (!elDays) return;
+    var diff = EVENT_DATE.getTime() - Date.now();
+    if (diff < 0) diff = 0;
+
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var mins = Math.floor((diff % 3600000) / 60000);
+    var secs = Math.floor((diff % 60000) / 1000);
+
+    elDays.textContent = pad(days);
+    elHours.textContent = pad(hours);
+    elMin.textContent = pad(mins);
+    elSec.textContent = pad(secs);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ---------- animación al hacer scroll ---------- */
+  var revealTargets = document.querySelectorAll(
+    ".ubicacion .cards, .itinerario .timeline, .familia__grid, .gift-card, .card--hotel"
+  );
+  revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealTargets.forEach(function (el) { io.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("in-view"); });
+  }
+})();
+
+</script>
+</body>
+</html>
