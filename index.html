@@ -80,6 +80,7 @@
     <p class="envelope__label">Con mucho cariño</p>
     <h1 class="envelope__guest">Familia Badillo Ramírez</h1>
     <p class="envelope__invite">te invita a celebrar</p>
+    <p class="for-family" id="envelopeFor" hidden></p>
 
     <button id="openInvitation" class="btn-open" type="button">
       Abrir Invitación
@@ -110,11 +111,9 @@
       <p class="hero__pretitle">Con mucho cariño,</p>
       <p class="hero__guest">Familia Badillo Ramírez</p>
       <p class="hero__invite">te invita a celebrar</p>
+      <p class="for-family for-family--hero" id="heroFor" hidden></p>
 
       <div class="hero__badge">
-        <div class="ph-photo hero__badge-photo">
-          <img src="img/img:1.jpg" alt="" onerror="this.style.display='none'">
-        </div>
         <span class="hero__age">15</span>
       </div>
 
@@ -238,8 +237,8 @@
 
   <!-- CON LA BENDICIÓN DE -->
   <section class="familia" id="familia">
-    <h2 class="section-title script">Con la Bendición de</h2>
-    <p class="familia__quince">Reyna Anahí Badillo Ramírez</p>
+    <p class="familia__quince familia__quince--top">Reyna Anahí Badillo Ramírez</p>
+    <h2 class="section-title script familia__title">Con la Bendición de</h2>
 
     <div class="familia__grid">
       <div class="familia__group">
@@ -261,6 +260,7 @@
   <section class="gracias gracias--nofoto fold fold--down">
     <div class="gracias__content">
       <p class="gracias__title">Familia Badillo Ramírez</p>
+      <p class="for-family for-family--gracias" id="graciasFor" hidden></p>
       <p>Gracias por ser parte de este momento tan especial, será un gusto poder compartir este día contigo</p>
     </div>
   </section>
