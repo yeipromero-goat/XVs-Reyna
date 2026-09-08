@@ -40,7 +40,7 @@
     if (hero) hero.setAttribute("tabindex", "-1");
     setTimeout(function () {
       if (hero) hero.focus();
-    }, 850);
+    }, 1150);
   });
 
   /* ---------- música de fondo ---------- */

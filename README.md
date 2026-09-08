@@ -25,18 +25,26 @@ etiqueta** (se ven solos, no rompen el diseño). En cuanto tengas las fotos
 finales, solo tienes que colocarlas en `img/` con estos nombres exactos —
 no hace falta tocar el código:
 
-| Archivo               | Sección                                          |
-|-----------------------|---------------------------------------------------|
+| Archivo                 | Sección                                          |
+|-------------------------|---------------------------------------------------|
 | `img/circulo-sobre.jpg` | Círculo del sobre de entrada (portada, antes de abrir) |
-| `img/1.jpg`            | Retrato principal — fondo del hero y círculo pequeño junto al "15" |
-| `img/2.jpg`            | Ubicación — Ceremonia Religiosa                     |
-| `img/3.jpg`            | Ubicación — Recepción                               |
-| `img/11.jpg`           | Hoteles                                            |
+| `img/1.jpeg`            | Fondo del hero (con efecto parallax al hacer scroll) — **extensión `.jpeg`, no `.jpg`** |
+| `img/img:2.jpg`         | Ubicación — Ceremonia Religiosa                     |
+| `img/img:3.jpg`         | Ubicación — Recepción                               |
+| `img/img:11.jpg`        | Hoteles                                            |
 
-`img/circulo-sobre.jpg` es un archivo nuevo, aparte de tu numeración 1–11 del
-shoot, porque me confirmaste que quieres una foto distinta ahí (no la misma
-del hero). Le puse nombre en vez de número para que no se confunda con las
-fotos numeradas.
+Importante: `img/img:2.jpg`, `img/img:3.jpg` e `img/img:11.jpg` llevan
+literalmente "img:" pegado al nombre (con dos puntos) porque así quedaron
+subidas esas fotos en tu repo la primera vez y decidiste que ajustara el
+código a esos nombres en vez de renombrar los archivos. Si en algún momento
+sí los renombras en GitHub (quitando el "img:"), avísame para actualizar el
+código y que quede como nomenclatura normal (`img/2.jpg`, etc).
+
+`img/circulo-sobre.jpg` es un archivo aparte de tu numeración 1–11 del shoot,
+porque confirmaste que quieres una foto distinta ahí (no la misma del hero).
+`img/1.jpeg` también es un archivo aparte — es la foto de fondo del hero con
+el efecto parallax, pediste específicamente ese nombre con extensión
+`.jpeg`.
 
 Save the Date y la sección de agradecimiento ya no llevan foto (se quitó a
 petición): ahora son fondo de color liso con el degradado vino/ámbar del
@@ -48,6 +56,17 @@ fotos, el 5 porque así venía tu numeración original, y el 7–10 porque eran
 los de la galería que también se quitó. Si esas fotos del shoot las quieres
 usar en otro lado, dime dónde y las acomodo. Usa formato horizontal para 1,
 2, 3 y 11.
+
+## Efecto parallax (fondo del hero)
+
+El fondo del hero (`img/1.jpeg`) se mueve más lento que el resto del
+contenido al hacer scroll, dando sensación de profundidad. Se hizo con JS
+(`js/script.js`, escucha el scroll y desplaza la imagen), no con
+`background-attachment: fixed`, porque ese truco de puro CSS no funciona
+bien en Safari de iPhone — y la mayoría de tus invitados van a abrir esto
+desde el celular. Si algún día quieres quitar el efecto o cambiar qué tan
+notorio es, el número a ajustar es el `0.15` en la función
+`updateParallax()` de `js/script.js` (más alto = se nota más el movimiento).
 
 ## Video
 
@@ -62,6 +81,33 @@ YouTube/Vimeo) y lo agrego con el mismo estilo del resto del sitio.
 evento) y el botón de la esquina superior izquierda la reproduce/pausa. Si
 el archivo no existe, el botón simplemente no hace nada — no genera errores
 visibles.
+
+## Link personalizado por familia
+
+No hace falta crear una página ni un repo por familia. El mismo `index.html`
+lee un parámetro en la URL y muestra una línea extra "Para: Familia X" en el
+sobre, el hero y la sección de agradecimiento. Si el link no trae el
+parámetro, esa línea simplemente no aparece (el diseño queda igual que hoy).
+
+Para armar el link de cada familia, toma la URL de tu sitio (la de GitHub
+Pages) y agrégale `?para=` seguido del nombre, así:
+
+```
+https://TU-USUARIO.github.io/XVs-Reyna/?para=Familia%20L%C3%B3pez
+https://TU-USUARIO.github.io/XVs-Reyna/?para=Familia%20Garc%C3%ADa
+```
+
+Los `%20` son espacios y `%C3%A1`/`%C3%AD` son acentos (á, í). Si no quieres
+escribir el código a mano, escribe el nombre normal con acentos y espacios
+directo en la barra de direcciones del navegador (`?para=Familia López`) y
+copia el link resultante — el navegador lo codifica solo. Al pegarlo en
+WhatsApp funciona igual.
+
+Esto es solo personalización visual (nadie necesita clave para verla, y
+cualquiera puede editar el link y ver otro nombre). No registra quién abrió
+el link ni cuenta como confirmación de asistencia — si más adelante quieres
+eso, es un cambio distinto (necesita guardar datos en algún lado, no solo
+HTML).
 
 ## Quién invita a quién
 

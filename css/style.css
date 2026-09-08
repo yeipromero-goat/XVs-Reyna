@@ -170,8 +170,11 @@ a{ color:inherit; text-decoration:none; }
   background:
     linear-gradient(155deg, rgba(255,255,255,.05) 0%, transparent 30%),
     linear-gradient(160deg,var(--rose) 0%, var(--rose-deep) 60%, #3f231d 100%);
-  transition:opacity .8s ease, visibility .8s ease;
+  transition:opacity .6s ease .55s, visibility .6s ease .55s, transform 1s cubic-bezier(.4,0,.2,1);
+  perspective:1400px;
+  transform:scale(1);
 }
+body.is-open .envelope{ transform:scale(1.12); }
 /* textura fina de papel (grano cruzado) */
 .envelope__texture{
   position:absolute; inset:0;
@@ -189,10 +192,19 @@ a{ color:inherit; text-decoration:none; }
 .envelope__texture::before{
   background:linear-gradient(180deg, rgba(255,255,255,.06), transparent 55%);
   clip-path:polygon(0 0,100% 0,50% 46%);
+  /* la solapa superior del sobre: gira sobre su propio doblez (50% 46%)
+     como si se abriera de verdad, en vez de solo desvanecerse */
+  transform-origin:50% 46%;
+  transform:rotateX(0deg);
+  transition:transform .75s cubic-bezier(.6,.05,.22,1);
+  backface-visibility:hidden;
 }
 .envelope__texture::after{
   background:linear-gradient(0deg, rgba(0,0,0,.16), transparent 55%);
   clip-path:polygon(0 100%,100% 100%,50% 54%);
+}
+body.is-open .envelope__texture::before{
+  transform:rotateX(-172deg) translateY(-1%);
 }
 .envelope__seam{
   position:absolute; inset:0;
@@ -235,6 +247,9 @@ a{ color:inherit; text-decoration:none; }
   border-radius:50%;
   border:2px solid rgba(255,255,255,.85);
 }
+/* la foto principal se ve completa (cuerpo entero); aquí se amplía para
+   que en el círculo pequeño se lea como un retrato de cerca */
+.envelope__portrait-photo img{ transform:scale(1.6); }
 .envelope__label{
   font-family:var(--font-serif);
   letter-spacing:.25em; text-transform:uppercase;
@@ -298,6 +313,11 @@ a{ color:inherit; text-decoration:none; }
   color:rgba(255,235,220,.92);
   text-shadow:0 1px 0 rgba(0,0,0,.4), 0 -1px 0 rgba(255,255,255,.12);
   position:relative;
+  transition:opacity .4s ease, transform .4s ease;
+}
+body.is-open .seal{
+  opacity:0;
+  transform:scale(.55) rotate(-18deg);
 }
 .seal__ring{
   position:absolute; inset:-9px;
