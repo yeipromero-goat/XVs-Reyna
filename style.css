@@ -333,6 +333,17 @@ section{ position:relative; }
   overflow:hidden;
 }
 .hero__bg{ position:absolute; inset:0; align-items:flex-start; padding-top:2.4rem; }
+/* la imagen es más alta que su contenedor para tener "colchón" de sobra:
+   el JS la desplaza (translateY) al hacer scroll, dando el efecto parallax
+   sin usar background-attachment:fixed (poco confiable en iPhone/Safari) */
+.hero__bg img{
+  top:-20%;
+  height:140%;
+  will-change:transform;
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__bg img{ transform:none !important; }
+}
 .hero__scrim{
   position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(20,14,12,.15), rgba(20,14,12,.55) 70%, rgba(20,14,12,.75));
@@ -577,11 +588,10 @@ section{ position:relative; }
 /* ---------- animación de aparición al hacer scroll ---------- */
 .reveal{
   opacity:0;
+  transform:translateX(-100vw);
   transition:opacity .7s ease, transform .7s cubic-bezier(.16,.8,.3,1);
   will-change:transform, opacity;
 }
-.reveal--left{ transform:translateX(-90px); }
-.reveal--right{ transform:translateX(90px); }
 .reveal.in-view{ opacity:1; transform:translateX(0); }
 
 @media (prefers-reduced-motion: reduce){
