@@ -560,31 +560,43 @@ section{ position:relative; }
 .regalos > p{ max-width:640px; margin:1rem auto 2.4rem; color:var(--ink-soft); font-size:1.1rem; }
 .gift-card{
   position:relative;
-  width:min(420px,90%);
+  width:min(440px,92%);
   aspect-ratio:16/9;
   margin:0 auto;
-  border-radius:16px;
-  background:linear-gradient(135deg,#e0117a 0%,#a10a59 100%);
-  box-shadow:0 20px 40px rgba(161,10,89,.35);
+  border-radius:20px;
+  background:linear-gradient(135deg,#e0117a 0%,#a10a59 70%,#7a0842 100%);
+  box-shadow:0 24px 48px rgba(161,10,89,.4), inset 0 1px 0 rgba(255,255,255,.25);
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:.3em;
+  gap:.5em;
+  border:1px solid rgba(255,255,255,.25);
 }
 .gift-card__corner{
   position:absolute; inset:0;
   background:
-    linear-gradient(100deg, rgba(255,255,255,.18) 0%, transparent 26%),
+    linear-gradient(100deg, rgba(255,255,255,.2) 0%, transparent 26%),
     repeating-linear-gradient(115deg, transparent 0 26px, rgba(255,255,255,.06) 26px 30px);
   border-radius:inherit;
+}
+.gift-card__shine{
+  position:absolute; top:-40%; left:-20%;
+  width:70%; height:120%;
+  background:radial-gradient(closest-side, rgba(255,255,255,.22), transparent 70%);
+  transform:rotate(20deg);
+  pointer-events:none;
 }
 .gift-card__bow{
   position:relative;
   color:rgba(255,255,255,.92);
   filter:drop-shadow(0 3px 6px rgba(0,0,0,.2));
 }
-.gift-card__store{
+.gift-card__brand{
   position:relative;
+  display:flex; align-items:center; gap:.6em;
+}
+.gift-card__mark{ color:var(--white); filter:drop-shadow(0 2px 4px rgba(0,0,0,.2)); }
+.gift-card__store{
   font-family:var(--font-serif); font-weight:700; letter-spacing:.02em;
-  color:var(--white); font-size:1.7rem;
+  color:var(--white); font-size:1.8rem;
 }
 .gift-card__table{ margin-top:1.6rem; font-family:var(--font-serif); letter-spacing:.06em; color:var(--gold-dark); }
 
@@ -593,6 +605,54 @@ section{ position:relative; }
 .hoteles > p{ max-width:640px; margin:1rem auto 2.4rem; color:var(--ink-soft); font-size:1.1rem; }
 .card--hotel{ max-width:520px; margin:0 auto; text-align:left; }
 .card--hotel .card__body{ text-align:center; }
+
+/* ---------- DRESS CODE ---------- */
+.dresscode{
+  position:relative;
+  padding:5rem 1.5rem 6rem;
+  text-align:center;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(207,154,76,.06), transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(207,154,76,.06), transparent 40%),
+    var(--white);
+}
+.dresscode__grid{
+  max-width:700px; margin:3rem auto 0;
+  display:grid; grid-template-columns:1fr 1fr; gap:2rem;
+}
+.dresscode__card{
+  background:var(--cream);
+  border:1px solid rgba(207,154,76,.4);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+.dresscode__photo{ aspect-ratio:3/4; }
+.dresscode__body{ padding:1.8rem 1.4rem 2.2rem; }
+.dresscode__label{
+  font-family:var(--font-script);
+  font-size:2rem;
+  color:var(--gold-dark);
+  margin-bottom:.2em;
+}
+.dresscode__style{
+  font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.08em;
+  font-size:.85rem; color:var(--ink); margin-bottom:1.1em;
+}
+.dresscode__swatches{
+  display:flex; justify-content:center; gap:.5em; margin-bottom:1.2em;
+}
+.swatch{
+  width:26px; height:26px; border-radius:50%;
+  background:var(--sw);
+  border:1px solid rgba(0,0,0,.15);
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+.dresscode__note{ color:var(--ink-soft); font-size:.92rem; line-height:1.6; margin:0; }
+
+@media (max-width:640px){
+  .dresscode__grid{ grid-template-columns:1fr; gap:1.6rem; }
+}
 
 /* ---------- CON LA BENDICIÓN DE (familia / padrinos) ---------- */
 .familia{ position:relative; padding:6rem 1.5rem 7rem; text-align:center; overflow:hidden; }
@@ -628,19 +688,69 @@ section{ position:relative; }
 
 /* ---------- COMPARTE TUS FOTOS ---------- */
 .compartefotos{
-  padding:5rem 1.5rem 6rem;
+  position:relative;
+  padding:5.5rem 1.5rem 6rem;
   text-align:center;
-  background:linear-gradient(160deg,var(--rose-deep) 0%, #3f231d 100%);
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255,255,255,.04), transparent 45%),
+    radial-gradient(circle at 85% 88%, rgba(255,255,255,.04), transparent 45%),
+    linear-gradient(160deg,var(--rose-deep) 0%, #3f231d 100%);
 }
-.compartefotos__content{ max-width:520px; margin:0 auto; color:var(--cream); }
+.compartefotos__corner{
+  position:absolute; width:150px; height:150px;
+  color:var(--gold); opacity:.35;
+}
+.compartefotos__corner--tl{ top:12px; left:12px; }
+.compartefotos__corner--br{ bottom:12px; right:12px; transform:scale(-1,-1); }
+.compartefotos__content{ position:relative; z-index:1; max-width:520px; margin:0 auto; color:var(--cream); }
 .compartefotos .section-title{ color:var(--white); }
 .compartefotos .section-title::after{ background:var(--gold); }
-.compartefotos > .compartefotos__content > p{ color:var(--cream); opacity:.9; margin:0 0 1.6rem; }
-.compartefotos .icon-circle--lg{
-  background:rgba(255,255,255,.12);
-  border:2px solid var(--gold);
-  color:var(--gold);
+.compartefotos__content > p{ color:var(--cream); opacity:.9; margin:0 0 2.2rem; }
+.compartefotos__divider{ color:rgba(255,230,200,.5); margin-top:1.8rem; }
+
+.upload-frame{
+  position:relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.7em;
+  padding:3rem 1.5rem;
+  border:1.5px dashed rgba(207,154,76,.6);
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  color:var(--cream);
+  cursor:pointer;
+  transition:transform .25s ease, background .25s ease, border-color .25s ease;
 }
+.upload-frame:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.07);
+  border-color:var(--gold);
+}
+.upload-frame__icon{
+  width:64px; height:64px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg,var(--rose-light) 0%,var(--rose) 100%);
+  color:var(--white);
+  border:2px solid var(--gold);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+.upload-frame__title{
+  font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.1em;
+  font-size:.95rem; color:var(--white);
+}
+.upload-frame__hint{
+  font-family:var(--font-body); font-size:.85rem; color:var(--gold); opacity:.85;
+}
+.upload-frame__corner{
+  position:absolute; width:22px; height:22px;
+  border:2px solid var(--gold);
+  opacity:.8;
+}
+.upload-frame__corner--tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
+.upload-frame__corner--tr{ top:10px; right:10px; border-left:none; border-bottom:none; }
+.upload-frame__corner--bl{ bottom:10px; left:10px; border-right:none; border-top:none; }
+.upload-frame__corner--br{ bottom:10px; right:10px; border-left:none; border-top:none; }
 
 /* ---------- FOOTER ---------- */
 .site-footer{ text-align:center; padding:3rem 1.5rem; color:var(--ink-soft); font-family:var(--font-serif); font-size:.85rem; letter-spacing:.05em; background:var(--white); }
