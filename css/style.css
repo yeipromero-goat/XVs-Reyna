@@ -357,7 +357,7 @@ section{ position:relative; }
    el JS la desplaza (translateY) al hacer scroll, dando el efecto parallax
    sin usar background-attachment:fixed (poco confiable en iPhone/Safari) */
 .hero__bg img{
-  top:-20%;
+  top:-8%;
   height:140%;
   will-change:transform;
 }
