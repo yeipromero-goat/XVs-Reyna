@@ -170,7 +170,12 @@
   </section>
 
   <!-- SAVE THE DATE -->
-  <section class="std std--nofoto fold fold--down" id="fecha">
+  <section class="std fold fold--down" id="fecha">
+    <div class="ph-photo std__bg">
+      <img src="img/save-the-date.jpg" alt="" onerror="this.style.display='none'">
+      <span class="ph-photo__label"><em>Foto</em>save-the-date.jpg</span>
+    </div>
+    <div class="std__scrim"></div>
     <div class="std__content">
       <h2 class="script">Save the Date</h2>
       <p class="std__date" data-editable="fecha del evento">30 . Oct . 2026</p>
@@ -237,6 +242,12 @@
 
   <!-- CON LA BENDICIÓN DE -->
   <section class="familia" id="familia">
+    <div class="ph-photo familia__bg">
+      <img src="img/familia.jpg" alt="" onerror="this.style.display='none'">
+      <span class="ph-photo__label"><em>Foto</em>familia.jpg</span>
+    </div>
+    <div class="familia__scrim"></div>
+    <div class="familia__content">
     <p class="familia__quince familia__quince--top">Anahí Badillo Ramírez</p>
     <h2 class="section-title script familia__title">Con la Bendición de</h2>
 
@@ -254,6 +265,7 @@
         <p>Martha Elena Badillo Hernández<br>Daniel Orellan Badillo</p>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- GRACIAS -->
@@ -265,6 +277,18 @@
     </div>
   </section>
 
+  <!-- COMPARTE TUS FOTOS -->
+  <section class="compartefotos fold fold--down" id="fotos">
+    <div class="compartefotos__content">
+      <div class="icon-circle icon-circle--lg" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+      </div>
+      <h2 class="section-title script">Comparte tus Fotos</h2>
+      <p>Guarda un recuerdo del día y súbelo a nuestro álbum compartido, para que quede junto con las fotos de todos los invitados.</p>
+      <a href="https://drive.google.com/drive/folders/1_PGpBKHP1MkHJ8pANnOuKd-zRPrGGdGB?usp=sharing" class="btn btn--solid" target="_blank" rel="noopener">Subir mis Fotos</a>
+    </div>
+  </section>
+
   <!-- MESA DE REGALOS -->
   <section class="regalos" id="regalos">
     <h2 class="section-title script">Mesa de Regalos</h2>
@@ -272,6 +296,13 @@
 
     <div class="gift-card">
       <span class="gift-card__corner" aria-hidden="true"></span>
+      <span class="gift-card__bow" aria-hidden="true">
+        <svg viewBox="0 0 60 60" width="46" height="46" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M30 30c-6-10-20-12-20-2 0 6 8 4 20 2Z"/>
+          <path d="M30 30c6-10 20-12 20-2 0 6-8 4-20 2Z"/>
+          <circle cx="30" cy="30" r="4" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
       <span class="gift-card__store" data-editable="nombre de la tienda">Liverpool</span>
     </div>
 
