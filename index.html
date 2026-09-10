@@ -279,13 +279,28 @@
 
   <!-- COMPARTE TUS FOTOS -->
   <section class="compartefotos fold fold--down" id="fotos">
+    <svg class="compartefotos__corner compartefotos__corner--tl" aria-hidden="true"><use href="#corner-motif"/></svg>
+    <svg class="compartefotos__corner compartefotos__corner--br" aria-hidden="true"><use href="#corner-motif"/></svg>
+
     <div class="compartefotos__content">
-      <div class="icon-circle icon-circle--lg" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></svg>
-      </div>
       <h2 class="section-title script">Comparte tus Fotos</h2>
       <p>Guarda un recuerdo del día y súbelo a nuestro álbum compartido, para que quede junto con las fotos de todos los invitados.</p>
-      <a href="https://drive.google.com/drive/folders/1_PGpBKHP1MkHJ8pANnOuKd-zRPrGGdGB?usp=sharing" class="btn btn--solid" target="_blank" rel="noopener">Subir mis Fotos</a>
+
+      <a class="upload-frame" href="https://drive.google.com/drive/folders/1_PGpBKHP1MkHJ8pANnOuKd-zRPrGGdGB?usp=sharing" target="_blank" rel="noopener">
+        <span class="upload-frame__corner upload-frame__corner--tl" aria-hidden="true"></span>
+        <span class="upload-frame__corner upload-frame__corner--tr" aria-hidden="true"></span>
+        <span class="upload-frame__corner upload-frame__corner--bl" aria-hidden="true"></span>
+        <span class="upload-frame__corner upload-frame__corner--br" aria-hidden="true"></span>
+        <span class="upload-frame__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h3l1.5-2h7L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </span>
+        <span class="upload-frame__title">Toca para subir tus fotos</span>
+        <span class="upload-frame__hint">Se abre en Google Drive</span>
+      </a>
+
+      <div class="compartefotos__divider" aria-hidden="true">
+        <svg viewBox="0 0 60 16" width="60" height="16"><path d="M2 8c8-8 12 6 20 0s10-8 18-8 10 8 18 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
     </div>
   </section>
 
@@ -296,14 +311,22 @@
 
     <div class="gift-card">
       <span class="gift-card__corner" aria-hidden="true"></span>
+      <span class="gift-card__shine" aria-hidden="true"></span>
       <span class="gift-card__bow" aria-hidden="true">
-        <svg viewBox="0 0 60 60" width="46" height="46" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 60 60" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M30 30c-6-10-20-12-20-2 0 6 8 4 20 2Z"/>
           <path d="M30 30c6-10 20-12 20-2 0 6-8 4-20 2Z"/>
           <circle cx="30" cy="30" r="4" fill="currentColor" stroke="none"/>
         </svg>
       </span>
-      <span class="gift-card__store" data-editable="nombre de la tienda">Liverpool</span>
+      <div class="gift-card__brand">
+        <svg class="gift-card__mark" viewBox="0 0 42 42" width="34" height="34" aria-hidden="true">
+          <path d="M2 2 H14 V8 H8 V14 H2 Z" fill="currentColor"/>
+          <path d="M10 10 H22 V16 H16 V22 H10 Z" fill="currentColor"/>
+          <path d="M18 18 H30 V24 H24 V30 H18 Z" fill="currentColor"/>
+        </svg>
+        <span class="gift-card__store" data-editable="nombre de la tienda">Liverpool</span>
+      </div>
     </div>
 
     <p class="gift-card__table" data-editable="número de mesa de regalos">Número de mesa #60040862</p>
@@ -327,6 +350,49 @@
         <a class="btn btn--outline" href="https://share.google/0kTS37jBXEp3rSL0d" target="_blank" rel="noopener">¿Cómo llegar?</a>
       </div>
     </article>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section class="dresscode fold fold--down" id="dresscode">
+    <h2 class="section-title script">Dress Code</h2>
+
+    <div class="dresscode__grid">
+      <div class="dresscode__card">
+        <div class="ph-photo dresscode__photo">
+          <img src="img/dresscode-mujer.jpg" alt="Ejemplo de vestimenta formal, mujer" onerror="this.style.display='none'">
+          <span class="ph-photo__label"><em>Foto</em>dresscode-mujer.jpg</span>
+        </div>
+        <div class="dresscode__body">
+          <div class="dresscode__label">Mujer</div>
+          <p class="dresscode__style" data-editable="código de vestimenta, mujer">Formal / Semi-formal</p>
+          <div class="dresscode__swatches" aria-hidden="true">
+            <span class="swatch" style="--sw:#efe0c9"></span>
+            <span class="swatch" style="--sw:#cf9a4c"></span>
+            <span class="swatch" style="--sw:#6b5142"></span>
+            <span class="swatch" style="--sw:#3b2a22"></span>
+          </div>
+          <p class="dresscode__note">Colores neutros y tonos tierra. Evita el blanco y el rojo (son los colores de la quinceañera).</p>
+        </div>
+      </div>
+
+      <div class="dresscode__card">
+        <div class="ph-photo dresscode__photo">
+          <img src="img/dresscode-hombre.jpg" alt="Ejemplo de vestimenta formal, hombre" onerror="this.style.display='none'">
+          <span class="ph-photo__label"><em>Foto</em>dresscode-hombre.jpg</span>
+        </div>
+        <div class="dresscode__body">
+          <div class="dresscode__label">Hombre</div>
+          <p class="dresscode__style" data-editable="código de vestimenta, hombre">Formal / Traje oscuro</p>
+          <div class="dresscode__swatches" aria-hidden="true">
+            <span class="swatch" style="--sw:#3b2a22"></span>
+            <span class="swatch" style="--sw:#6b5142"></span>
+            <span class="swatch" style="--sw:#9c6b28"></span>
+            <span class="swatch" style="--sw:#efe0c9"></span>
+          </div>
+          <p class="dresscode__note">Traje o camisa de vestir en tonos neutros. Evita el blanco y el rojo (son los colores de la quinceañera).</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer class="site-footer">
