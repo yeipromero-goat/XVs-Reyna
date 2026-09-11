@@ -351,8 +351,18 @@ body:not(.is-open){ overflow:hidden; height:100vh; }
 section{ position:relative; }
 
 /* ---------- HERO ---------- */
+/* .hero mide más que la pantalla (170vh) a propósito: mientras se recorre
+   ese espacio extra, .hero__stage se queda "pegado" (position:sticky) y
+   el texto se desvanece con JS (basado en el scroll), dejando el video
+   solo unos segundos antes de pasar a la siguiente sección. */
 .hero{
-  min-height:100vh;
+  position:relative;
+  min-height:170vh;
+}
+.hero__stage{
+  position:sticky;
+  top:0;
+  height:100vh;
   display:flex; align-items:center; justify-content:center;
   overflow:hidden;
 }
@@ -367,6 +377,8 @@ section{ position:relative; }
   will-change:transform;
 }
 @media (prefers-reduced-motion: reduce){
+  .hero{ min-height:100vh; }
+  .hero__stage{ position:relative; }
   .hero__bg img,
   .hero__bg video{ transform:none !important; }
 }
@@ -378,6 +390,7 @@ section{ position:relative; }
 .hero__content{
   position:relative; z-index:2;
   text-align:center; color:var(--cream);
+  will-change:opacity, transform;
   padding:6rem 1.5rem 4rem;
 }
 .hero__pretitle{
@@ -715,12 +728,12 @@ section{ position:relative; }
 .rsvp-frame__corner--br{ bottom:10px; right:10px; border-left:none; border-top:none; }
 
 /* ---------- CON LA BENDICIÓN DE (familia / padrinos) ---------- */
-.familia{ position:relative; padding:6rem 1.5rem 7rem; text-align:center; overflow:hidden; }
-.familia__bg{ position:absolute; inset:0; align-items:flex-start; padding-top:2.4rem; }
-.familia__scrim{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(20,14,12,.55), rgba(20,14,12,.72) 55%, rgba(20,14,12,.88));
-  z-index:1;
+.familia{
+  position:relative; padding:6rem 1.5rem 7rem; text-align:center; overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,.04), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255,255,255,.04), transparent 45%),
+    linear-gradient(160deg,var(--rose-deep) 0%, #3f231d 100%);
 }
 .familia__content{ position:relative; z-index:2; }
 .familia__quince{
