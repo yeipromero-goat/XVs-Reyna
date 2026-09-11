@@ -102,8 +102,10 @@
   <!-- HERO -->
   <section class="hero fold fold--down" id="inicio">
     <div class="ph-photo hero__bg">
-      <img id="heroParallaxImg" src="img/1.jpeg" alt="Retrato de la quinceañera" onerror="this.style.display='none'">
-      <span class="ph-photo__label"><em>Foto 1</em>Retrato principal</span>
+      <video id="heroParallaxImg" poster="img/1.jpeg" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'">
+        <source src="img/1.mp4" type="video/mp4">
+      </video>
+      <span class="ph-photo__label"><em>Video 1</em>Video principal</span>
     </div>
     <div class="hero__scrim"></div>
 
@@ -309,7 +311,7 @@
     <h2 class="section-title script">Mesa de Regalos</h2>
     <p>Mi mejor regalo es que estés conmigo en este día tan especial, pero si quieres hacerme un obsequio aquí están algunas opciones.</p>
 
-    <div class="gift-card">
+    <a class="gift-card" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60040862" target="_blank" rel="noopener" data-editable="liga de la mesa de regalos" aria-label="Ir a Mesa de Regalos Liverpool">
       <span class="gift-card__corner" aria-hidden="true"></span>
       <span class="gift-card__shine" aria-hidden="true"></span>
       <span class="gift-card__bow" aria-hidden="true">
@@ -327,7 +329,7 @@
         </svg>
         <span class="gift-card__store" data-editable="nombre de la tienda">Liverpool</span>
       </div>
-    </div>
+    </a>
 
     <p class="gift-card__table" data-editable="número de mesa de regalos">Número de mesa #60040862</p>
     <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60040862" class="btn btn--solid" target="_blank" rel="noopener" data-editable="liga de la mesa de regalos">Ir a Mesa de Regalos</a>
@@ -361,10 +363,13 @@
         <div class="ph-photo dresscode__photo">
           <img src="img/dresscode-mujer.jpg" alt="Ejemplo de vestimenta formal, mujer" onerror="this.style.display='none'">
           <span class="ph-photo__label"><em>Foto</em>dresscode-mujer.jpg</span>
+          <div class="dresscode__scrim" aria-hidden="true"></div>
+          <div class="dresscode__overlay">
+            <div class="dresscode__label" data-editable="código de vestimenta, mujer">Mujer - Formal</div>
+            <p class="dresscode__style">Usa colores neutros</p>
+          </div>
         </div>
         <div class="dresscode__body">
-          <div class="dresscode__label">Mujer</div>
-          <p class="dresscode__style" data-editable="código de vestimenta, mujer">Formal / Semi-formal</p>
           <div class="dresscode__swatches" aria-hidden="true">
             <span class="swatch" style="--sw:#efe0c9"></span>
             <span class="swatch" style="--sw:#cf9a4c"></span>
@@ -379,10 +384,13 @@
         <div class="ph-photo dresscode__photo">
           <img src="img/dresscode-hombre.jpg" alt="Ejemplo de vestimenta formal, hombre" onerror="this.style.display='none'">
           <span class="ph-photo__label"><em>Foto</em>dresscode-hombre.jpg</span>
+          <div class="dresscode__scrim" aria-hidden="true"></div>
+          <div class="dresscode__overlay">
+            <div class="dresscode__label" data-editable="código de vestimenta, hombre">Hombre - Formal</div>
+            <p class="dresscode__style">Usa colores neutros</p>
+          </div>
         </div>
         <div class="dresscode__body">
-          <div class="dresscode__label">Hombre</div>
-          <p class="dresscode__style" data-editable="código de vestimenta, hombre">Formal / Traje oscuro</p>
           <div class="dresscode__swatches" aria-hidden="true">
             <span class="swatch" style="--sw:#3b2a22"></span>
             <span class="swatch" style="--sw:#6b5142"></span>
@@ -392,6 +400,24 @@
           <p class="dresscode__note">Traje o camisa de vestir en tonos neutros. Evita el blanco y el rojo (son los colores de la quinceañera).</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="rsvp fold fold--up" id="confirmar">
+    <div class="rsvp__content">
+      <h2 class="section-title script">Confirma tu Asistencia</h2>
+      <p>Ayúdanos a preparar todo con tiempo. Por favor confirma antes del <span data-editable="fecha límite de confirmación">15 de octubre</span> usando el formulario.</p>
+      <a class="rsvp-frame" href="https://forms.gle/TU-LIGA-AQUI" target="_blank" rel="noopener" data-editable="liga del formulario de confirmación">
+        <span class="rsvp-frame__corner rsvp-frame__corner--tl" aria-hidden="true"></span>
+        <span class="rsvp-frame__corner rsvp-frame__corner--tr" aria-hidden="true"></span>
+        <span class="rsvp-frame__corner rsvp-frame__corner--bl" aria-hidden="true"></span>
+        <span class="rsvp-frame__corner rsvp-frame__corner--br" aria-hidden="true"></span>
+        <span class="rsvp-frame__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/></svg>
+        </span>
+        <span class="rsvp-frame__title">Confirmar mi Asistencia</span>
+        <span class="rsvp-frame__hint">Se abre en Google Forms</span>
+      </a>
     </div>
   </section>
 
