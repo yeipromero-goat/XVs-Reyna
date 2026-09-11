@@ -97,7 +97,8 @@ a{ color:inherit; text-decoration:none; }
   justify-content:center;
   color:rgba(255,255,255,.85);
 }
-.ph-photo img{
+.ph-photo img,
+.ph-photo video{
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover;
@@ -359,13 +360,15 @@ section{ position:relative; }
 /* la imagen es más alta que su contenedor para tener "colchón" de sobra:
    el JS la desplaza (translateY) al hacer scroll, dando el efecto parallax
    sin usar background-attachment:fixed (poco confiable en iPhone/Safari) */
-.hero__bg img{
+.hero__bg img,
+.hero__bg video{
   top:-8%;
   height:140%;
   will-change:transform;
 }
 @media (prefers-reduced-motion: reduce){
-  .hero__bg img{ transform:none !important; }
+  .hero__bg img,
+  .hero__bg video{ transform:none !important; }
 }
 .hero__scrim{
   position:absolute; inset:0;
@@ -627,18 +630,32 @@ section{ position:relative; }
   overflow:hidden;
   box-shadow:0 14px 30px rgba(0,0,0,.08);
 }
-.dresscode__photo{ aspect-ratio:3/4; }
-.dresscode__body{ padding:1.8rem 1.4rem 2.2rem; }
+.dresscode__photo{ aspect-ratio:4/5; }
+.dresscode__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(20,14,12,.05) 0%, rgba(20,14,12,.55) 45%, rgba(20,14,12,.15) 75%);
+  z-index:3;
+}
+.dresscode__overlay{
+  position:absolute; left:0; right:0; top:42%;
+  z-index:4;
+  text-align:center;
+  padding:0 1rem;
+}
 .dresscode__label{
-  font-family:var(--font-script);
-  font-size:2rem;
-  color:var(--gold-dark);
-  margin-bottom:.2em;
+  font-family:var(--font-serif); font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+  font-size:1.35rem;
+  color:var(--gold);
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
+  margin-bottom:.3em;
 }
 .dresscode__style{
-  font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.08em;
-  font-size:.85rem; color:var(--ink); margin-bottom:1.1em;
+  font-family:var(--font-body); font-size:1.05rem;
+  color:var(--white);
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+  margin:0;
 }
+.dresscode__body{ padding:1.6rem 1.4rem 1.8rem; }
 .dresscode__swatches{
   display:flex; justify-content:center; gap:.5em; margin-bottom:1.2em;
 }
@@ -653,6 +670,50 @@ section{ position:relative; }
 @media (max-width:640px){
   .dresscode__grid{ grid-template-columns:1fr; gap:1.6rem; }
 }
+
+/* ---------- CONFIRMAR ASISTENCIA (RSVP) ---------- */
+.rsvp{
+  position:relative;
+  padding:6rem 1.5rem 7rem;
+  text-align:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255,255,255,.04), transparent 45%),
+    radial-gradient(circle at 85% 88%, rgba(255,255,255,.04), transparent 45%),
+    linear-gradient(160deg,var(--rose-deep) 0%, #3f231d 100%);
+}
+.rsvp__content{ position:relative; z-index:1; max-width:520px; margin:0 auto; color:var(--cream); }
+.rsvp .section-title{ color:var(--white); }
+.rsvp .section-title::after{ background:var(--gold); }
+.rsvp__content > p{ color:var(--cream); opacity:.9; margin:0 0 2.2rem; }
+
+.rsvp-frame{
+  position:relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.7em;
+  padding:3rem 1.5rem;
+  border:1.5px dashed rgba(207,154,76,.6);
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  color:var(--cream);
+  cursor:pointer;
+  transition:transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.rsvp-frame:hover{ transform:translateY(-3px); background:rgba(255,255,255,.07); border-color:var(--gold); }
+.rsvp-frame__icon{
+  width:64px; height:64px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg,var(--rose-light) 0%,var(--rose) 100%);
+  color:var(--white); border:2px solid var(--gold);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+.rsvp-frame__title{ font-family:var(--font-serif); text-transform:uppercase; letter-spacing:.1em; font-size:.95rem; color:var(--white); }
+.rsvp-frame__hint{ font-family:var(--font-body); font-size:.85rem; color:var(--gold); opacity:.85; }
+.rsvp-frame__corner{ position:absolute; width:22px; height:22px; border:2px solid var(--gold); opacity:.8; }
+.rsvp-frame__corner--tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
+.rsvp-frame__corner--tr{ top:10px; right:10px; border-left:none; border-bottom:none; }
+.rsvp-frame__corner--bl{ bottom:10px; left:10px; border-right:none; border-top:none; }
+.rsvp-frame__corner--br{ bottom:10px; right:10px; border-left:none; border-top:none; }
 
 /* ---------- CON LA BENDICIÓN DE (familia / padrinos) ---------- */
 .familia{ position:relative; padding:6rem 1.5rem 7rem; text-align:center; overflow:hidden; }
