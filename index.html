@@ -101,35 +101,37 @@
 
   <!-- HERO -->
   <section class="hero fold fold--down" id="inicio">
-    <div class="ph-photo hero__bg">
-      <video id="heroParallaxImg" poster="img/1.jpeg" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'">
-        <source src="img/1.mp4" type="video/mp4">
-      </video>
-      <span class="ph-photo__label"><em>Video 1</em>Video principal</span>
-    </div>
-    <div class="hero__scrim"></div>
+    <div class="hero__stage">
+      <div class="ph-photo hero__bg">
+        <video id="heroParallaxImg" poster="img/1.jpeg" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'">
+          <source src="img/1.mp4" type="video/mp4">
+        </video>
+        <span class="ph-photo__label"><em>Video 1</em>Video principal</span>
+      </div>
+      <div class="hero__scrim"></div>
 
-    <div class="hero__content">
-      <p class="hero__pretitle">Con mucho cariño,</p>
-      <p class="hero__guest">Familia Badillo Ramírez</p>
-      <p class="hero__invite">te invita a celebrar</p>
-      <p class="for-family for-family--hero" id="heroFor" hidden></p>
+      <div class="hero__content" id="heroContent">
+        <p class="hero__pretitle">Con mucho cariño,</p>
+        <p class="hero__guest">Familia Badillo Ramírez</p>
+        <p class="hero__invite">te invita a celebrar</p>
+        <p class="for-family for-family--hero" id="heroFor" hidden></p>
 
-      <div class="hero__badge">
-        <span class="hero__age">XV</span>
+        <div class="hero__badge">
+          <span class="hero__age">XV</span>
+        </div>
+
+        <p class="hero__name" data-editable="Nombre de la quinceañera">Anahí</p>
+        <p class="hero__subtitle">Mis XV Años</p>
+
+        <div class="hero__date">
+          <span data-editable="día">30</span>
+          <span data-editable="mes">Oct</span>
+          <span data-editable="año">2026</span>
+        </div>
       </div>
 
-      <p class="hero__name" data-editable="Nombre de la quinceañera">Anahí</p>
-      <p class="hero__subtitle">Mis XV Años</p>
-
-      <div class="hero__date">
-        <span data-editable="día">30</span>
-        <span data-editable="mes">Oct</span>
-        <span data-editable="año">2026</span>
-      </div>
+      <a href="#ubicacion" class="scroll-cue" id="heroScrollCue" aria-label="Ir a la sección de ubicación">˅</a>
     </div>
-
-    <a href="#ubicacion" class="scroll-cue" aria-label="Ir a la sección de ubicación">˅</a>
   </section>
 
   <!-- UBICACIÓN -->
@@ -244,11 +246,6 @@
 
   <!-- CON LA BENDICIÓN DE -->
   <section class="familia" id="familia">
-    <div class="ph-photo familia__bg">
-      <img src="img/familia.jpg" alt="" onerror="this.style.display='none'">
-      <span class="ph-photo__label"><em>Foto</em>familia.jpg</span>
-    </div>
-    <div class="familia__scrim"></div>
     <div class="familia__content">
     <p class="familia__quince familia__quince--top">Anahí Badillo Ramírez</p>
     <h2 class="section-title script familia__title">Con la Bendición de</h2>
@@ -361,17 +358,17 @@
           <div class="dresscode__scrim" aria-hidden="true"></div>
           <div class="dresscode__overlay">
             <div class="dresscode__label" data-editable="código de vestimenta, mujer">Mujer - Formal</div>
-            <p class="dresscode__style">Usa colores neutros</p>
+            <p class="dresscode__style">El color que gustes, menos rojo</p>
           </div>
         </div>
         <div class="dresscode__body">
           <div class="dresscode__swatches" aria-hidden="true">
-            <span class="swatch" style="--sw:#efe0c9"></span>
             <span class="swatch" style="--sw:#cf9a4c"></span>
-            <span class="swatch" style="--sw:#6b5142"></span>
-            <span class="swatch" style="--sw:#3b2a22"></span>
+            <span class="swatch" style="--sw:#3b6b5a"></span>
+            <span class="swatch" style="--sw:#4a5c8a"></span>
+            <span class="swatch" style="--sw:#6b4a7a"></span>
           </div>
-          <p class="dresscode__note">Colores neutros y tonos tierra. Evita el blanco y el rojo (son los colores de la quinceañera).</p>
+          <p class="dresscode__note">Vestido o traje formal, del color que prefieras. Solo evita el rojo (es el color de la quinceañera).</p>
         </div>
       </div>
 
@@ -382,17 +379,17 @@
           <div class="dresscode__scrim" aria-hidden="true"></div>
           <div class="dresscode__overlay">
             <div class="dresscode__label" data-editable="código de vestimenta, hombre">Hombre - Formal</div>
-            <p class="dresscode__style">Usa colores neutros</p>
+            <p class="dresscode__style">El color que gustes, menos rojo</p>
           </div>
         </div>
         <div class="dresscode__body">
           <div class="dresscode__swatches" aria-hidden="true">
             <span class="swatch" style="--sw:#3b2a22"></span>
-            <span class="swatch" style="--sw:#6b5142"></span>
-            <span class="swatch" style="--sw:#9c6b28"></span>
+            <span class="swatch" style="--sw:#2f4a3a"></span>
+            <span class="swatch" style="--sw:#2c3d5c"></span>
             <span class="swatch" style="--sw:#efe0c9"></span>
           </div>
-          <p class="dresscode__note">Traje o camisa de vestir en tonos neutros. Evita el blanco y el rojo (son los colores de la quinceañera).</p>
+          <p class="dresscode__note">Traje o camisa de vestir formal, del color que prefieras. Solo evita el rojo (es el color de la quinceañera).</p>
         </div>
       </div>
     </div>
